@@ -18,7 +18,7 @@ import AnimatedButton from 'react-native-animated-button';
 | :-----------: |:-------------:| :-----:| :-----: | :-----: |
 | containerStyle     | Button container style  | Object | {{}} | False |
 |   onPress   | Button onPress callback.|   Function | {()=>{ }}| False |
-|   infoContainer   | Flying container.| <> | False |
+|   infoContainer   | Flying container.| Element | <> | False |
 |   direction   | Flying direction.|   String |  top | False |
 
 
