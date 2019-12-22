@@ -1,0 +1,27 @@
+{
+  "name": "react-native-animated-button",
+  "version": "1.0.0",
+  "description": "React Native animated button",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nithinpp69/react-native-animated-button.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/runtime": "^7.4.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "jetifier": "^1.6.5",
+    "metro-react-native-babel-preset": "^0.54.1",
+    "react-test-renderer": "16.8.3"
+  },
+  "author": "Nithin P P <nithinpp69@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  }
+}
