@@ -1,5 +1,5 @@
 {
-  "name": "react-native-animated-button",
+  "name": "@nithinpp69/react-native-animated-button",
   "version": "1.0.0",
   "description": "React Native animated button",
   "main": "index.js",
@@ -17,11 +17,19 @@
     "jest": "^24.8.0",
     "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "^0.54.1",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.8.3",
+    "prop-types": "^15.7.2"
   },
+  "keywords": [
+    "react-native",
+    "react",
+    "native",
+    "animated",
+    "button",
+    "ui",
+    "animated-button"
+  ],
   "author": "Nithin P P <nithinpp69@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "prop-types": "^15.7.2"
-  }
+  "homepage": "https://github.com/nithinpp69/react-native-animated-button.git"
 }
