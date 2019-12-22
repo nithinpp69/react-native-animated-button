@@ -11,6 +11,7 @@ A simple and customizable React Native animated button component.
 import AnimatedButton from 'react-native-animated-button';
 
 
+
 ```
 ## Props
 | Prop          | Description   | Type   | Default | Required |
