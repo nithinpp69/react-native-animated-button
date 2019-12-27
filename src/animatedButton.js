@@ -19,7 +19,7 @@ class AnimatedButton extends Component {
     });
     this.positionY = this.animate.interpolate({
       inputRange: [0, 1],
-      outputRange: [0, this.props.direction === 'bottom' ? 100 : -100],
+      outputRange: [0, this.props.direction === 'down' ? 100 : -100],
       extrapolate: 'clamp'
     })
     this.scale = this.animate.interpolate({
@@ -88,7 +88,7 @@ AnimatedButton.propTypes = {
   onPress: PropTypes.func,
   containerStyle: PropTypes.object,
   infoContainer: PropTypes.element,
-  direction: PropTypes.oneOf(['top', 'bottom']),
+  direction: PropTypes.oneOf(['up', 'down']),
 }
 
 export default AnimatedButton;
