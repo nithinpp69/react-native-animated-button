@@ -70,23 +70,16 @@ class AnimatedButton extends Component {
   render() {
     return (
       <View>
-        <TouchableOpacity activeOpacity={
-          0.8
-        }
+        <TouchableOpacity activeOpacity={0.8}
           onPress={
             () => {
               this.animateValue(), this.props.onPress();
             }
           }
         >
-          <Animated.View style={
-            [this.props.containerStyle, {
-              transform: [{
-                scale: this.buttonScale
-              }]
-            }]
-          } > {
-              this.props.children
+          <Animated.View style={[this.props.containerStyle, {transform: [{scale: this.buttonScale}]}]}>
+             {
+              ...this.props.children
             }
           </Animated.View>
         </TouchableOpacity>
@@ -102,7 +95,7 @@ class AnimatedButton extends Component {
               scale: this.scale
             }]
           }]
-        } > {
+        }> {
             this.props.infoContainer || this.props.children
           }
         </Animated.View>
