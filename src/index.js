@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import {
   View,
   Animated,
@@ -21,17 +23,17 @@ class AnimatedButton extends Component {
       inputRange: [0, 1],
       outputRange: [0, this.props.direction === 'down' ? 100 : -100],
       extrapolate: 'clamp'
-    })
+    });
     this.scale = this.animate.interpolate({
       inputRange: [0, 1],
       outputRange: [0.65, 0.85],
       extrapolate: 'clamp'
-    })
+    });
     this.buttonScale = this.animateButton.interpolate({
       inputRange: [0, 1],
       outputRange: [1, 0.8],
       extrapolate: 'clamp'
-    })
+    });
   }
 
   animateValue() {
@@ -68,27 +70,61 @@ class AnimatedButton extends Component {
   render() {
     return (
       <View>
-        <TouchableOpacity activeOpacity={0.8} onPress={() => { this.animateValue(), this.props.onPress() }}>
-          <Animated.View style={[this.props.containerStyle, { transform: [{ scale: this.buttonScale }] }]}>
-            {
+        <TouchableOpacity activeOpacity={
+          0.8
+        }
+          onPress={
+            () => {
+              this.animateValue(), this.props.onPress();
+            }
+          }
+        >
+          <Animated.View style={
+            [this.props.containerStyle, {
+              transform: [{
+                scale: this.buttonScale
+              }]
+            }]
+          } > {
               this.props.children
             }
           </Animated.View>
         </TouchableOpacity>
-        <Animated.View style={[{ opacity: this.actionOpacity, position: 'absolute', top: 0, alignSelf: 'center', transform: [{ translateY: this.positionY }, { scale: this.scale }] }]}>
-          {
+        <Animated.View style={
+          [{
+            opacity: this.actionOpacity,
+            position: 'absolute',
+            top: 0,
+            alignSelf: 'center',
+            transform: [{
+              translateY: this.positionY
+            }, {
+              scale: this.scale
+            }]
+          }]
+        } > {
             this.props.infoContainer || this.props.children
           }
         </Animated.View>
-      </View>
+      </View >
     );
   }
 }
+
 AnimatedButton.propTypes = {
-  onPress: PropTypes.func,
+  onPress: PropTypes.func.isRequired,
   containerStyle: PropTypes.object,
   infoContainer: PropTypes.element,
-  direction: PropTypes.oneOf(['up', 'down']),
-}
+  direction: PropTypes.oneOfType(['up', 'down']),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
+Animated.defaultProps = {
+  containerStyle: {},
+  direction: 'up'
+};
 
 export default AnimatedButton;
