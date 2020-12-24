@@ -6,7 +6,6 @@ import {
   TouchableOpacity
 } from 'react-native';
 import PropTypes from 'prop-types';
-
 class AnimatedButton extends Component {
   constructor(props) {
     super(props);
@@ -21,17 +20,17 @@ class AnimatedButton extends Component {
       inputRange: [0, 1],
       outputRange: [0, this.props.direction === 'down' ? 100 : -100],
       extrapolate: 'clamp'
-    })
+    });
     this.scale = this.animate.interpolate({
       inputRange: [0, 1],
       outputRange: [0.65, 0.85],
       extrapolate: 'clamp'
-    })
+    });
     this.buttonScale = this.animateButton.interpolate({
       inputRange: [0, 1],
       outputRange: [1, 0.8],
       extrapolate: 'clamp'
-    })
+    });
   }
 
   animateValue() {
@@ -68,7 +67,7 @@ class AnimatedButton extends Component {
   render() {
     return (
       <View>
-        <TouchableOpacity activeOpacity={0.8} onPress={() => { this.animateValue(), this.props.onPress() }}>
+        <TouchableOpacity activeOpacity={0.8} onPress={() => { this.animateValue(), this.props.onPress(); }}>
           <Animated.View style={[this.props.containerStyle, { transform: [{ scale: this.buttonScale }] }]}>
             {
               this.props.children
@@ -84,11 +83,13 @@ class AnimatedButton extends Component {
     );
   }
 }
+
 AnimatedButton.propTypes = {
   onPress: PropTypes.func,
   containerStyle: PropTypes.object,
   infoContainer: PropTypes.element,
   direction: PropTypes.oneOf(['up', 'down']),
-}
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
+};
 
 export default AnimatedButton;
