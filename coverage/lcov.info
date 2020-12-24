@@ -1,5 +1,5 @@
 TN:
-SF:src/animatedButton.js
+SF:src/index.js
 FN:8,_createSuper
 FN:8,_createSuperInternal
 FN:8,_isNativeReflectConstruct

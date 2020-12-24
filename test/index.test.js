@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import AnimatedButton from '../src/animatedButton';
+import AnimatedButton from '../src';
 
 /*global describe*/
 /*global beforeEach*/

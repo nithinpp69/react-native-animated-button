@@ -1,3 +1,3 @@
-import AnimatedButton from './src/animatedButton';
+import AnimatedButton from './src';
 
 export default AnimatedButton;

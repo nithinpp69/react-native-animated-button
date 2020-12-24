@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "lint:fix": "eslint src/ --fix"
+    "lint:fix": "eslint --color --ext .js --fix src/"
   },
   "repository": {
     "name": "GitHub",
@@ -17,8 +17,8 @@
     "url": "git+https://github.com/nithinpp69/react-native-animated-button.git"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-native": ">=0.59.0"
+    "react": "*",
+    "react-native": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
