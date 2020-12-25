@@ -1,95 +1,80 @@
-import React, { Component } from 'react';
-import {
-  View,
-  Animated,
-  Easing,
-  TouchableOpacity
-} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
-class AnimatedButton extends Component {
-  constructor(props) {
-    super(props);
-    this.animate = new Animated.Value(0);
-    this.animateButton = new Animated.Value(0);
-    this.actionOpacity = this.animate.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, 1],
-      extrapolate: 'clamp',
-    });
-    this.positionY = this.animate.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, this.props.direction === 'down' ? 100 : -100],
-      extrapolate: 'clamp'
-    });
-    this.scale = this.animate.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0.65, 0.85],
-      extrapolate: 'clamp'
-    });
-    this.buttonScale = this.animateButton.interpolate({
-      inputRange: [0, 1],
-      outputRange: [1, 0.8],
-      extrapolate: 'clamp'
-    });
-  }
+import Animated, { interpolate } from "react-native-reanimated";
+import { useTimingTransition } from "react-native-redash/lib/module/v1";
 
-  animateValue() {
-    Animated.parallel([
-      Animated.sequence([
-        Animated.timing(this.animate, {
-          toValue: 1,
-          duration: 600,
-          easing: Easing.linear,
-          useNativeDriver: true
-        }),
-        Animated.timing(this.animate, {
-          toValue: 0,
-          duration: 10,
-          easing: Easing.linear,
-          useNativeDriver: true
-        })
-      ]),
-      Animated.sequence([
-        Animated.timing(this.animateButton, {
-          toValue: 1,
-          duration: 200,
-          useNativeDriver: true
-        }),
-        Animated.timing(this.animateButton, {
-          toValue: 0,
-          duration: 0,
-          useNativeDriver: true
-        })
-      ])
-    ]).start();
-  }
+const Y_DISTANCE = 120;
 
-  render() {
-    return (
-      <View>
-        <TouchableOpacity activeOpacity={0.8} onPress={() => { this.animateValue(), this.props.onPress(); }}>
-          <Animated.View style={[this.props.containerStyle, { transform: [{ scale: this.buttonScale }] }]}>
-            {
-              this.props.children
-            }
-          </Animated.View>
+const AnimatedButton = ({ onPress, duration, style, direction, children, childContainer }) => {
+
+  const containerStyle = Array.isArray(style) ? [styles.container, ...style] : [styles.container, style];
+  const yTranslation = direction == "up" ? -Y_DISTANCE : Y_DISTANCE;
+  const [animation, setAnimation] = useState(false);
+  const transition = useTimingTransition(animation, { duration });
+
+  const scale = interpolate(transition, {
+    inputRange: [0, 0.5, 1],
+    outputRange: [1, 0.8, 1],
+  });
+
+  const translateY = interpolate(transition, {
+    inputRange: [0, 0.9, 1],
+    outputRange: [0, yTranslation, 0]
+  });
+
+  const opacity = interpolate(transition, {
+    inputRange: [0, 0.6, 0.8, 0.81, 1],
+    outputRange: [0, 1, 0.5, 0, 0]
+  });
+
+  const handleOnPress = () => {
+    setAnimation(prev => !prev);
+    onPress();
+  };
+
+  return (
+    <View>
+      <Animated.View style={[containerStyle, { transform: [{ scale }] }]}>
+        <TouchableOpacity style={styles.touchable} activeOpacity={0.8} onPress={handleOnPress}>
+          {children}
         </TouchableOpacity>
-        <Animated.View style={[{ opacity: this.actionOpacity, position: 'absolute', top: 0, alignSelf: 'center', transform: [{ translateY: this.positionY }, { scale: this.scale }] }]}>
-          {
-            this.props.infoContainer || this.props.children
-          }
-        </Animated.View>
-      </View>
-    );
-  }
-}
+      </Animated.View>
+      <Animated.View pointerEvents={'none'} style={[styles.childContainer, { transform: [{ translateY }], opacity }]}>
+        {childContainer || children || (<View style={[containerStyle, styles.touchable]} />)}
+      </Animated.View>
+    </View>
+  );
+};
 
 AnimatedButton.propTypes = {
-  onPress: PropTypes.func,
-  containerStyle: PropTypes.object,
-  infoContainer: PropTypes.element,
+  onPress: PropTypes.func.isRequired,
+  duration: PropTypes.number,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  childContainer: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   direction: PropTypes.oneOf(['up', 'down']),
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
+
+AnimatedButton.defaultProps = {
+  duration: 600,
+  style: {},
+  childContainer: null,
+  direction: 'up',
+  children: null
+};
+
+const styles = StyleSheet.create({
+  container: {
+  },
+  touchable: {
+    flex: 1
+  },
+  childContainer: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 110,
+    alignSelf: 'center'
+  }
+});
 
 export default AnimatedButton;
