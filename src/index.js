@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
 import Animated, { interpolate } from "react-native-reanimated";
