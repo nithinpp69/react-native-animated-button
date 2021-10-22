@@ -11,7 +11,6 @@ const Y_DISTANCE = 120;
 
 type Direction = 'up' | 'down';
 type Position = 'left' | 'center' | 'right';
-
 export interface AnimatedButtonProps {
   onPress?: () => void;
   duration?: number;
