@@ -67,7 +67,7 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
 | duration | animation duration | Number | 500 | false |
 | style | button container style | Object | {} | false |
 | direction | flying direction | 'up' or 'down' | 'up' | false |
-| children | children componenent | React.ReactNode | null | false |
+| children | children component | React.ReactNode | null | false |
 | renderFlyingContainer | function to render the flying container. If not given, will be replaced by children element | Function | () => null | false |
 | enableScaleAnimation | enable or disable button scale animation | Boolean | true | false |
 | position | flying container position based on the button element | 'left' or 'center' or 'right' | 'center' | false |

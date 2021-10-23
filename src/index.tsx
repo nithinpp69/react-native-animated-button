@@ -12,14 +12,41 @@ const Y_DISTANCE = 120;
 type Direction = 'up' | 'down';
 type Position = 'left' | 'center' | 'right';
 export interface AnimatedButtonProps {
+  /**
+   * button onPress callback
+   */
   onPress?: () => void;
+  /**
+   * animation duration
+   */
   duration?: number;
+  /**
+   * button container style
+   */
   style?: StyleProp<ViewStyle>;
+  /**
+   * flying direction
+   */
   direction: Direction;
+  /**
+   * children component
+   */
   children?: React.ReactNode;
+  /**
+   * function to render the flying container. If not given, will be replaced by children element
+   */
   renderFlyingContainer?: () => React.ReactNode;
+  /**
+   * enable or disable button scale animation
+   */
   enableScaleAnimation?: boolean;
+  /**
+   * flying container position based on the button element
+   */
   position: Position;
+  /**
+   * enable or disable button animation
+   */
   animationEnabled?: boolean;
 }
 
