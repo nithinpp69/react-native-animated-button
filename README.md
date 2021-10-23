@@ -12,6 +12,7 @@ A simple and customizable React Native animated button component.
 
 ![](without_custom_popup.gif)
 ![](with_custom_popup.gif)
+![](with_likes_count.gif)
 ## Prerequisites
 
  ⚠️ Peer Dependencies
@@ -85,7 +86,7 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
       <Text style={{color: 'white', fontSize: 18, fontWeight: 'bold'}}>+1</Text>
     )}
   >
-    <ImageBackground
+    <Image
       source={{ uri: 'https://cdn-icons.flaticon.com/png/512/210/premium/210545.png?token=exp=1634987603~hmac=8001e17087323c73af4e1f1c9d461f53' }}
       style={{ width: 35, height: 35 }}
     />
@@ -95,6 +96,46 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
 ```
 
 ![](with_custom_popup.gif)
+#### with likes count
+
+```
+import AnimatedButton from '@nithinpp69/react-native-animated-button';
+
+....
+
+const [likeCount, setLikeCount]  = useState(0);
+
+....
+
+<Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18, marginBottom: 15, textAlign: 'left', width: '90%' }}>With Likes Count</Text>
+<Image
+  source={{ 
+    uri: 'https://images.unsplash.com/photo-1634938971687-1082b4cb018c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80' 
+  }}
+  style={{ width: '90%', height: 250, borderRadius: 15 }}
+/>
+<View style={{ width: '90%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingTop: 15 }}>
+  <Text style={{ color: 'white', fontSize: 15 }}>Image courtesy : Unsplash and FlatIcon</Text>
+  <AnimatedButton
+    renderFlyingContainer={() => (
+      <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }}>+1</Text>
+    )}
+    onPress={() => {
+      setLikeCount(count => count + 1);
+    }}
+  >
+    <ImageBackground
+      source={{ uri: 'https://cdn-icons.flaticon.com/png/512/210/premium/210545.png?token=exp=1634987603~hmac=8001e17087323c73af4e1f1c9d461f53' }}
+      style={{ width: 35, height: 35, alignItems: 'center', justifyContent: 'center' }}
+    >
+      <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>{likeCount}</Text>
+    </ImageBackground>
+  </AnimatedButton>
+</View>
+
+```
+
+![](with_likes_count.gif)
 ## Props
 
 | Prop | Description | Type | Default Value | Required |
