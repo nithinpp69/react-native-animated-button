@@ -2,7 +2,7 @@
   "name": "@nithinpp69/react-native-animated-button",
   "version": "1.0.3",
   "description": "React Native animated button",
-  "main": "index.js",
+  "main": "index",
   "author": "Nithin P P <nithinpp69@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/nithinpp69/react-native-animated-button.git",
