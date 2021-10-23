@@ -17,9 +17,10 @@ export interface AnimatedButtonProps {
   style?: StyleProp<ViewStyle>;
   direction: Direction;
   children?: React.ReactNode;
-  childContainer?: React.ReactNode;
+  renderFlyingContainer?: () => React.ReactNode;
   enableScaleAnimation?: boolean;
   position: Position;
+  animationEnabled?: boolean;
 }
 
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({
@@ -28,9 +29,10 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   style = {},
   direction = 'up',
   children = null,
-  childContainer = null,
+  renderFlyingContainer = () => null,
   enableScaleAnimation = true,
   position = 'center',
+  animationEnabled = true,
 }: AnimatedButtonProps) => {
 
   const getPosition = (position) => {
@@ -47,7 +49,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   const containerPosition = useMemo(() => getPosition(position), [position]);
 
   const styleProps = {
-    position: containerPosition
+    position: containerPosition,
   };
 
   const yTranslation = direction == 'up' ? -Y_DISTANCE : Y_DISTANCE;
@@ -87,8 +89,12 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   });
 
   const handleOnPress = () => {
-    const toValue = animatedValue.value === 1 ? 0 : 1;
-    animatedValue.value = withTiming(toValue, { duration });
+    if (animationEnabled)
+      animatedValue.value = withTiming(1, { duration }, (isFinished) => {
+        if (isFinished) {
+          animatedValue.value = 0;
+        }
+      });
     onPress?.();
   };
 
@@ -106,20 +112,21 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       <Animated.View
         pointerEvents={'none'}
         style={[styles(styleProps).childContainer, rChStyle]}>
-        {childContainer || children || <View style={style} />}
+        {renderFlyingContainer?.() || children || <View style={style} />}
       </Animated.View>
     </View>
   );
 };
 
-const styles = (props) => (
-  StyleSheet.create({
+const styles = (props) => {
+ return StyleSheet.create({
     childContainer: {
       position: 'absolute',
       top: 0,
       zIndex: 110,
       alignSelf: props.position,
     },
-  }));
+ });
+};
 
 export default AnimatedButton;
