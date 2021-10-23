@@ -39,23 +39,21 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
 ....
 
-<Text>Without Custom popup</Text>
-<AnimatedButton
-  direction="up"
->
-  <Ionicons name='ios-heart' color='red' size=30>
-</AnimatedButton>
-
-
-<Text>With Custom popup</Text>
-<AnimatedButton
-  direction="up"
-  infoContainer={
-    <Text style={{color: 'white', fontSize: 14}}> +1 </Text>
-  }
->
-  <Ionicons name='ios-heart' color='red' size=30>
-</AnimatedButton>
+<Image
+  source={{ uri: 
+    'https://images.unsplash.com/photo-1634937883785-da730ecf792a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80'
+  }}
+  style={{ width: '90%', height: 250, borderRadius: 15 }}
+/>
+<View style={{ width: '90%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingTop: 15 }}>
+  <Text style={{ color: 'white', fontSize: 15 }}>Image courtesy : Unsplash and FlatIcon</Text>
+  <AnimatedButton>
+    <Image
+      source={{ uri: 'https://cdn-icons.flaticon.com/png/512/210/premium/210545.png?token=exp=1634987603~hmac=8001e17087323c73af4e1f1c9d461f53' }}
+      style={{ width: 35, height: 35 }}
+    />
+  </AnimatedButton>
+</View>
 
 
 ```
