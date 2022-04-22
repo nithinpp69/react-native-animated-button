@@ -1,6 +1,6 @@
 # React Native Animated Button 🔥
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)]()
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](https://github.com/nithinpp69/react-native-animated-button/blob/main/LICENSE)
 ![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS-brightgreen.svg?style=for-the-badge&colorB=191A17)
 [![Version](https://img.shields.io/npm/v/@nithinpp69/react-native-animated-button.svg?style=for-the-badge)](https://www.npmjs.com/package/@nithinpp69/react-native-animated-button)
 [![npm](https://img.shields.io/npm/dt/@nithinpp69/react-native-animated-button.svg?style=for-the-badge)](https://www.npmjs.com/package/@nithinpp69/react-native-animated-button)
