@@ -40,27 +40,64 @@ Supported version: react-native >= 0.59.0
 #### without custom popup
 
 ```jsx
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
-....
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#171517',
+    alignItems: 'center',
+  },
+  title: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginBottom: 15,
+    textAlign: 'left',
+    width: '90%',
+  },
+  image: { width: '90%', height: 250, borderRadius: 15 },
+  row: {
+    width: '90%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: 15,
+  },
+  courtesy: { color: 'white', fontSize: 15 },
+  icon: { width: 35, height: 35 },
+});
 
-<Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18, marginBottom: 15, textAlign: 'left', width: '90%' }}>Without Custom Popup</Text>
-<Image
-  source={{ 
-    uri: 'https://images.unsplash.com/photo-1634937883785-da730ecf792a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80' 
-  }}
-  style={{ width: '90%', height: 250, borderRadius: 15 }}
-/>
-<View style={{ width: '90%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingTop: 15 }}>
-  <Text style={{ color: 'white', fontSize: 15 }}>Image courtesy : Unsplash and FlatIcon</Text>
-  <AnimatedButton>
-    <Image
-      source={{ uri: 'https://cdn-icons.flaticon.com/png/512/210/premium/210545.png?token=exp=1634987603~hmac=8001e17087323c73af4e1f1c9d461f53' }}
-      style={{ width: 35, height: 35 }}
-    />
-  </AnimatedButton>
-</View>
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Without Custom Popup</Text>
+      <Image
+        source={{
+          uri: 'https://images.unsplash.com/photo-1634938971687-1082b4cb018c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80',
+        }}
+        style={styles.image}
+      />
+      <View style={styles.row}>
+        <Text style={styles.courtesy}>
+          Image courtesy : Unsplash and FlatIcon
+        </Text>
+        <AnimatedButton>
+          <Image
+            source={{
+              uri: 'https://cdn-icons-png.flaticon.com/512/6685/6685820.png',
+            }}
+            style={styles.icon}
+          />
+        </AnimatedButton>
+      </View>
+    </View>
+  );
+};
 
+export default App;
 ```
 
 ![](examples/without_custom_popup.gif)
@@ -68,30 +105,69 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
 #### with custom popup
 
 ```jsx
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
-....
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#171517',
+    alignItems: 'center',
+  },
+  title: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginBottom: 15,
+    textAlign: 'left',
+    width: '90%',
+  },
+  image: { width: '90%', height: 250, borderRadius: 15 },
+  row: {
+    width: '90%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: 15,
+  },
+  courtesy: { color: 'white', fontSize: 15 },
+  flyingContainer: { color: 'white', fontSize: 18, fontWeight: 'bold' },
+  icon: { width: 35, height: 35 },
+});
 
-<Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18, marginBottom: 15, textAlign: 'left', width: '90%' }}>With Custom Popup</Text>
-<Image
-  source={{ 
-    uri: 'https://images.unsplash.com/photo-1634938971687-1082b4cb018c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80' 
-  }}
-  style={{ width: '90%', height: 250, borderRadius: 15 }}
-/>
-<View style={{ width: '90%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingTop: 15 }}>
-  <Text style={{ color: 'white', fontSize: 15 }}>Image courtesy : Unsplash and FlatIcon</Text>
-  <AnimatedButton
-    renderFlyingContainer={()=> (
-      <Text style={{color: 'white', fontSize: 18, fontWeight: 'bold'}}>+1</Text>
-    )}
-  >
-    <Image
-      source={{ uri: 'https://cdn-icons.flaticon.com/png/512/210/premium/210545.png?token=exp=1634987603~hmac=8001e17087323c73af4e1f1c9d461f53' }}
-      style={{ width: 35, height: 35 }}
-    />
-  </AnimatedButton>
-</View>
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>With Custom Popup</Text>
+      <Image
+        source={{
+          uri: 'https://images.unsplash.com/photo-1634938971687-1082b4cb018c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80',
+        }}
+        style={styles.image}
+      />
+      <View style={styles.row}>
+        <Text style={styles.courtesy}>
+          Image courtesy : Unsplash and FlatIcon
+        </Text>
+        <AnimatedButton
+          renderFlyingContainer={() => (
+            <Text style={styles.flyingContainer}>+1</Text>
+          )}
+        >
+          <Image
+            source={{
+              uri: 'https://cdn-icons-png.flaticon.com/512/6685/6685820.png',
+            }}
+            style={styles.icon}
+          />
+        </AnimatedButton>
+      </View>
+    </View>
+  );
+};
+
+export default App;
 
 ```
 
@@ -99,40 +175,86 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
 #### with likes count
 
 ```jsx
+import React, { useState } from 'react';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
-....
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#171517',
+    alignItems: 'center',
+  },
+  title: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginBottom: 15,
+    textAlign: 'left',
+    width: '90%',
+  },
+  image: { width: '90%', height: 250, borderRadius: 15 },
+  row: {
+    width: '90%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: 15,
+  },
+  courtesy: { color: 'white', fontSize: 15 },
+  flyingContainer: { color: 'white', fontSize: 18, fontWeight: 'bold' },
+  icon: {
+    width: 35,
+    height: 35,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  likesCount: {
+    color: 'black',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
 
-const [likeCount, setLikeCount]  = useState(0);
+const App = () => {
+  const [likeCount, setLikeCount] = useState(0);
 
-....
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>With Likes Count</Text>
+      <Image
+        source={{
+          uri: 'https://images.unsplash.com/photo-1634938971687-1082b4cb018c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80',
+        }}
+        style={styles.image}
+      />
+      <View style={styles.row}>
+        <Text style={styles.courtesy}>
+          Image courtesy : Unsplash and FlatIcon
+        </Text>
+        <AnimatedButton
+          renderFlyingContainer={() => (
+            <Text style={styles.flyingContainer}>+1</Text>
+          )}
+          onPress={() => {
+            setLikeCount(count => count + 1);
+          }}
+        >
+          <ImageBackground
+            source={{
+              uri: 'https://cdn-icons-png.flaticon.com/512/6685/6685820.png',
+            }}
+            style={styles.icon}
+          >
+            <Text style={styles.likesCount}>{likeCount}</Text>
+          </ImageBackground>
+        </AnimatedButton>
+      </View>
+    </View>
+  );
+};
 
-<Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18, marginBottom: 15, textAlign: 'left', width: '90%' }}>With Likes Count</Text>
-<Image
-  source={{ 
-    uri: 'https://images.unsplash.com/photo-1634938971687-1082b4cb018c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80' 
-  }}
-  style={{ width: '90%', height: 250, borderRadius: 15 }}
-/>
-<View style={{ width: '90%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingTop: 15 }}>
-  <Text style={{ color: 'white', fontSize: 15 }}>Image courtesy : Unsplash and FlatIcon</Text>
-  <AnimatedButton
-    renderFlyingContainer={() => (
-      <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }}>+1</Text>
-    )}
-    onPress={() => {
-      setLikeCount(count => count + 1);
-    }}
-  >
-    <ImageBackground
-      source={{ uri: 'https://cdn-icons.flaticon.com/png/512/210/premium/210545.png?token=exp=1634987603~hmac=8001e17087323c73af4e1f1c9d461f53' }}
-      style={{ width: 35, height: 35, alignItems: 'center', justifyContent: 'center' }}
-    >
-      <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>{likeCount}</Text>
-    </ImageBackground>
-  </AnimatedButton>
-</View>
-
+export default App;
 ```
 
 ![](examples/with_likes_count.gif)
