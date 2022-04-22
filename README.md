@@ -26,20 +26,20 @@ Follow [react-native-reanimated-v2](https://docs.swmansion.com/react-native-rean
 
 Supported version: react-native >= 0.59.0
 
-  ```
+  ```bash
   npm install @nithinpp69/react-native-animated-button
   ```
   
   or
   
-  ```
+  ```bash
   yarn add @nithinpp69/react-native-animated-button
   ```
 ## Example
 
 #### without custom popup
 
-```
+```jsx
 import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
 ....
@@ -67,7 +67,7 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
 #### with custom popup
 
-```
+```jsx
 import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
 ....
@@ -98,7 +98,7 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
 ![](examples/with_custom_popup.gif)
 #### with likes count
 
-```
+```jsx
 import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
 ....
