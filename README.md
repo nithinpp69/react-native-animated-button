@@ -1,18 +1,18 @@
-# react-native-animated-button
+# React Native Animated Button 🔥
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
-![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS-brightgreen.svg?style=flat&colorB=191A17)
-[![Version](https://img.shields.io/npm/v/@nithinpp69/react-native-animated-button.svg)](https://www.npmjs.com/package/@nithinpp69/react-native-animated-button)
-[![npm](https://img.shields.io/npm/dt/@nithinpp69/react-native-animated-button.svg)](https://www.npmjs.com/package/@nithinpp69/react-native-animated-button)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)]()
+![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS-brightgreen.svg?style=for-the-badge&colorB=191A17)
+[![Version](https://img.shields.io/npm/v/@nithinpp69/react-native-animated-button.svg?style=for-the-badge)](https://www.npmjs.com/package/@nithinpp69/react-native-animated-button)
+[![npm](https://img.shields.io/npm/dt/@nithinpp69/react-native-animated-button.svg?style=for-the-badge)](https://www.npmjs.com/package/@nithinpp69/react-native-animated-button)
 
 A simple and customizable React Native animated button component. 
 ## Demo
 
-❤️ [Expo Snack](https://snack.expo.dev/@nithinpp69/react-native-animated-button)
+## ❤️ [Try on Expo Snack](https://snack.expo.dev/@nithinpp69/react-native-animated-button)
 
-![](without_custom_popup.gif)
-![](with_custom_popup.gif)
-![](with_likes_count.gif)
+![](examples/without_custom_popup.gif)
+![](examples/with_custom_popup.gif)
+![](examples/with_likes_count.gif)
 ## Prerequisites
 
  ⚠️ Peer Dependencies
@@ -63,7 +63,7 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
 ```
 
-![](without_custom_popup.gif)
+![](examples/without_custom_popup.gif)
 
 #### with custom popup
 
@@ -95,7 +95,7 @@ import AnimatedButton from '@nithinpp69/react-native-animated-button';
 
 ```
 
-![](with_custom_popup.gif)
+![](examples/with_custom_popup.gif)
 #### with likes count
 
 ```
@@ -135,7 +135,7 @@ const [likeCount, setLikeCount]  = useState(0);
 
 ```
 
-![](with_likes_count.gif)
+![](examples/with_likes_count.gif)
 ## Props
 
 | Prop | Description | Type | Default Value | Required |
