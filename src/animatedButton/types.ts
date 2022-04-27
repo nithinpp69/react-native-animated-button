@@ -70,6 +70,20 @@ interface AnimatedButtonProps {
    * @default true
    */
   animationEnabled?: boolean;
+  /**
+   * enable or disable the button. If set to true, the onPress callback
+   * will not be executed.
+   * 
+   * @default false
+   */
+  disabled?: boolean;
+  /**
+   * button style when button is disabled. Use this to style the button
+   * when disabled is true.
+   * 
+   * @default {}
+   */
+  disabledStyle?: ViewStyle;
 }
 
 

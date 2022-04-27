@@ -22,6 +22,8 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   enableScaleAnimation = true,
   position = 'center',
   animationEnabled = true,
+  disabled = false,
+  disabledStyle = {},
 }: AnimatedButtonProps) => {
   const animatedValue: Animated.SharedValue<number> = useSharedValue(0);
 
@@ -94,13 +96,19 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     onPress?.();
   }, [animationEnabled, duration, onPress]);
 
+  const buttonStyle = useMemo(() => {
+    if (!disabled) return style;
+    return { ...style, ...disabledStyle };
+  }, [style, disabledStyle, disabled]);
+
   return (
     <View>
       <Animated.View style={[rCStyle]}>
         <TouchableOpacity
-          style={style}
+          style={buttonStyle}
           activeOpacity={0.8}
           onPress={handleOnPress}
+          disabled={disabled}
         >
           {children}
         </TouchableOpacity>

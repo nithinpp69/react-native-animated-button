@@ -260,17 +260,19 @@ export default App;
 ![](examples/with_likes_count.gif)
 ## Props
 
-| Prop | Description | Type | Default Value | Required |
-| :---:|:-----------:|:----:|:-------------:|:--------:|
-| onPress | button onPress callback | Function | () => {} | false |
-| duration | animation duration | Number | 500 | false |
-| style | button container style | Object | {} | false |
-| direction | flying direction | 'up' or 'down' | 'up' | false |
-| children | children component | React.ReactNode | null | false |
-| renderFlyingContainer | function to render the flying container. If not given, will be replaced by children element | Function | () => null | false |
-| enableScaleAnimation | enable or disable button scale animation | Boolean | true | false |
-| position | flying container position based on the button element | 'left' or 'center' or 'right' | 'center' | false |
-| animationEnabled | enable or disable button animation | Boolean | true | false |
+| Prop                  | Description                                                                                 | Type                          | Default Value | Required |
+| :--------------------:|:-------------------------------------------------------------------------------------------:|:-----------------------------:|:-------------:|:--------:|
+| onPress               | button onPress callback                                                                     | Function                      | () => {}      | false    |
+| duration              | animation duration                                                                          | Number                        | 500           | false    |
+| style                 | button container style                                                                      | ViewStyle                     | {}            | false    |
+| disabled              | enable or disable button. If disabled, onPress callback won't be executed                   | Boolean                       | false         | false    |
+| disabledStyle         | extra styling when the button is disabled. For eg, decreased opacity, different color etc.  | ViewStyle                     | {}            | false    |
+| direction             | flying direction                                                                            | 'up' or 'down'                | 'up'          | false    |
+| children              | children component                                                                          | React.ReactNode               | null          | false    |
+| renderFlyingContainer | function to render the flying container. If not given, will be replaced by children element | Function                      | () => null    | false    |
+| enableScaleAnimation  | enable or disable button scale animation                                                    | Boolean                       | true          | false    |
+| position              | flying container position based on the button element                                       | 'left' or 'center' or 'right' | 'center'      | false    |  
+| animationEnabled      | enable or disable button animation                                                          | Boolean                       | true          | false    |
 
 
 
