@@ -1,3 +1,9 @@
+###  Build: 🏠 `2.1.0` - react-native-circular-progress-indicator
+
+---
+- feat: added disabled prop. Use this to enable or disable the button
+- feat: added disabledStyle prop. Use this to style the button when disabled
+
 ###  Build: 🏠 `2.0.1` - react-native-circular-progress-indicator
 
 ---
